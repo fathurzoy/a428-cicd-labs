@@ -12,6 +12,10 @@ pipeline {
                 sh 'rm -f package-lock.json'
                 sh 'rm -f yarn.lock'
                 sh 'npm cache clean --force'
+                sh 'npm config rm proxy'
+                sh 'npm config rm https-proxy'
+                sh 'npm cache verify'
+                sh 'npm set registry=https://registry.npmjs.org/'
                 sh 'npm install' 
             }
         }
